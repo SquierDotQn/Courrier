@@ -1,5 +1,23 @@
 package lettres;
 
-public class SimpleLetter extends Letter<T> {
+import courrier.Inhabitant;
+import courrier.Text;
 
+
+public class SimpleLetter extends Letter<Text> {
+
+	private float DEFAULT_COST=1;
+
+	public SimpleLetter(Inhabitant sender, Inhabitant reciever, Text content) {
+		super(sender, reciever, content);
+	}
+	
+	public void action(){
+		
+	}
+	
+	public float getCost(){
+		return DEFAULT_COST;
+	}
+	
 }
