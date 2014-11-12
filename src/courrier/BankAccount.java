@@ -36,7 +36,7 @@ public class BankAccount {
 	 *            the amount of money to substract.
 	 */
 	public void debit(int amount) {
-		this.account += amount;
+		this.account -= amount;
 	}
 
 	/**
