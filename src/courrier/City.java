@@ -1,5 +1,6 @@
 package courrier;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lettres.Letter;
@@ -24,6 +25,8 @@ public class City {
 	 */
 	public City(String name) {
 		this.name = name;
+		this.letterBox = new ArrayList<Letter<?>>();
+		this.inhabitants = new ArrayList<Inhabitant>();
 	}
 
 	/**
@@ -68,7 +71,7 @@ public class City {
 	 */
 	public void distributeLetter() {
 		for (Letter<?> l : this.letterBox) {
-			l.getDestinataire().receiveLetter(l);
+			l.getReceiver().receiveLetter(l);
 		}
 	}
 
