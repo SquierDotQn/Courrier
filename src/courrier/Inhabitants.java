@@ -60,7 +60,7 @@ public class Inhabitant {
 	 *            the letter sent
 	 */
 	public void postsLetter(Letter<?> letter) {
-		this.account.debit(letter.getCout());
+		this.account.debit(letter.getCost());
 		this.address.sendLetter(letter);
 	}
 
