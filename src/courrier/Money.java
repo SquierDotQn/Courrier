@@ -8,7 +8,7 @@ package courrier;
  */
 public class Money extends AbstractContent<Double> {
 
-	public Money(double sum) {
+	public Money(float sum) {
 		super(sum);
 	}
 }
