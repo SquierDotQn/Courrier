@@ -1,6 +1,5 @@
 package lettres;
 
-import courrier.Inhabitant;
 import courrier.Text;
 
 public class ReceiptAcknowledgmentLetter extends SimpleLetter {
@@ -9,8 +8,9 @@ public class ReceiptAcknowledgmentLetter extends SimpleLetter {
 		super(rl.receiver, rl.sender, new Text(rl.receiver + " received a registered letter from "+rl.sender));
 	}
 	
+	@Override
 	public String toString(){
-		return this.content.getValue();
+		return "receipt acknowledgment letter";
 	}
 
 }

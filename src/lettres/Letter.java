@@ -3,7 +3,7 @@ package lettres;
 import courrier.Content;
 import courrier.Inhabitant;
 
-public abstract class Letter<T extends Content> {
+public abstract class Letter<T extends Content> implements Content {
 	T content;
 	Inhabitant receiver;
 	Inhabitant sender;
@@ -16,7 +16,7 @@ public abstract class Letter<T extends Content> {
 	}
 	
 	public void action(){
-		
+		System.out.println(this);
 	}
 	
 	public T getContent(){
@@ -31,10 +31,6 @@ public abstract class Letter<T extends Content> {
 	
 	public Inhabitant getSender(){
 		return sender;
-	}
-	
-	public String toString(){
-		return "From : "+sender+" to : "+receiver+" :\n content : "+content;
 	}
 	
 }

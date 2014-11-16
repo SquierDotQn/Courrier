@@ -13,11 +13,16 @@ public class SimpleLetter extends Letter<Text> {
 	}
 	
 	public void action(){
-		
+		super.action();
 	}
 	
 	public float getCost(){
 		return DEFAULT_COST;
+	}
+	
+	@Override
+	public String toString(){
+		return "simple letter";
 	}
 	
 }

@@ -11,5 +11,10 @@ public class Text extends AbstractContent<String> {
 	public Text(String txt) {
 		super(txt);
 	}
+	
+	@Override
+	public String toString(){
+		return super.getValue();
+	}
 
 }

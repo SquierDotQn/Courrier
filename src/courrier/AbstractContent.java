@@ -20,4 +20,5 @@ public abstract class AbstractContent<T> implements Content {
 	public T getValue() {
 		return this.value;
 	}
+	
 }

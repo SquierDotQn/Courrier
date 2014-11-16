@@ -6,9 +6,15 @@ package courrier;
  * @author Théo Plockyn - Marion Tommasi
  *
  */
-public class Money extends AbstractContent<Double> {
+public class Money extends AbstractContent<Float> {
 
 	public Money(float sum) {
 		super(sum);
 	}
+	
+	@Override
+	public String toString(){
+		return "Money : "+super.getValue();
+	}
+	
 }

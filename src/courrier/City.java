@@ -73,10 +73,11 @@ public class City {
 		for (Letter<?> l : this.letterBox) {
 			l.getReceiver().receiveLetter(l);
 		}
+		// On ne devrait pas enlever les lettres déjà envoyées ?
 	}
 
 	/**
-	 * Adds an inhabitants to th list of inhabitants of a city.
+	 * Adds an inhabitants to the list of inhabitants of a city.
 	 * 
 	 * @param newcommer
 	 *            the inhabitant to add

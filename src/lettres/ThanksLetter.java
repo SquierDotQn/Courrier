@@ -1,6 +1,5 @@
 package lettres;
 
-import courrier.Inhabitant;
 import courrier.Text;
 
 public class ThanksLetter extends SimpleLetter {
@@ -9,4 +8,9 @@ public class ThanksLetter extends SimpleLetter {
 		super(pn.receiver,pn.sender, new Text("Thanks "+pn.sender.getName()+" !"));
 	}
 
+	@Override
+	public String toString(){
+		return "thanks letter";
+	}
+	
 }
