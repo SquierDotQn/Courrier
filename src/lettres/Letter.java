@@ -62,4 +62,6 @@ public abstract class Letter<T extends Content> implements Content {
 		return sender;
 	}
 	
+	public abstract String toString();
+
 }
