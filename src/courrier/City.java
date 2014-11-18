@@ -70,20 +70,25 @@ public class City {
 	 * Delivers all the letter int the letterBox.
 	 */
 	public void distributeLetter() {
+		System.out.println("It's time for mail delivery in " + this);
 		for (Letter<?> l : this.letterBox) {
 			l.getReceiver().receiveLetter(l);
 		}
-		// On ne devrait pas enlever les lettres déjà envoyées ?
+		this.letterBox.clear();
 	}
 
 	/**
-	 * Adds an inhabitants to the list of inhabitants of a city.
+	 * Adds an inhabitant to the list of inhabitants of a city.
 	 * 
 	 * @param newcommer
 	 *            the inhabitant to add
 	 */
 	public void addInhabitant(Inhabitant newcommer) {
+		System.out.println("Welcome to " + this + " " + newcommer + " !");
 		getInhabitants().add(newcommer);
 	}
 
+	public String toString() {
+		return this.getName();
+	}
 }
