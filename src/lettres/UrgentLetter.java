@@ -25,11 +25,6 @@ public class UrgentLetter extends AbstractLetterDecorator<Letter<?>> {
 	}
 	
 	@Override
-	public void action(){
-		content.action();
-	}
-	
-	@Override
 	public String toString(){
 		return "urgent letter";
 	}

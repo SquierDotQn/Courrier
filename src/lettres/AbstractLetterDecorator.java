@@ -25,6 +25,11 @@ public abstract class AbstractLetterDecorator<T extends Letter<?>> extends Lette
 		super(content.sender, content.reciever, content);
 	}
 	
+	@Override
+	public void action(){
+		content.action();
+	}
+	
 	
 
 }

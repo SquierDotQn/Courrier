@@ -46,8 +46,8 @@ public class PromissoryNote extends Letter<Money> {
 	public void action(){
 		super.action();
 		try {
-			sender.getAccount().debit(content.getValue());
-			reciever.getAccount().credit(content.getValue());
+			sender.debit(content.getValue());
+			reciever.credit(content.getValue());
 		} catch (NegativeAmountException | NotEnoughMoneyException e) {
 			e.printStackTrace();
 		}

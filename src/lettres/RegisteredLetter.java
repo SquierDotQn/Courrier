@@ -26,7 +26,7 @@ public class RegisteredLetter extends AbstractLetterDecorator<Letter<?>> {
 	 */
 	@Override
 	public void action(){
-		content.action();
+		super.action();
 		reciever.postsLetter(new ReceiptAcknowledgmentLetter(this));
 	}
 	

@@ -8,10 +8,10 @@ import courrier.Money;
 import courrier.Text;
 
 public class PromissoryNoteTest extends LetterTest {
-	private int testMoney = 1;
+	private Money testMoney = new Money(1);
 	@Test
 	public void testGetCost() {
-		assertEquals((1.0+(0.1*testMoney)), l.getCost(), 0.1);
+		assertEquals((1.0+(0.1*testMoney.getValue())), l.getCost(), 0.1);
 	}
 
 	@Test
@@ -21,7 +21,20 @@ public class PromissoryNoteTest extends LetterTest {
 
 	@Override
 	public Letter<?> createLetter() {
-		return new PromissoryNote(mockIn1, mockIn2, new Money(testMoney));
+		return new PromissoryNote(mockIn1, mockIn2, testMoney);
 	}
 
+	@Test
+	public void testAction() {
+		float expectedMoneyIn1 = mockIn1.getAccount().getAccount()-testMoney.getValue();
+		float expectedMoneyIn2 = mockIn2.getAccount().getAccount()+testMoney.getValue()-SimpleLetter.DEFAULT_COST;
+		
+		l.action();
+		
+		float resultMoneyIn1 = mockIn1.getAccount().getAccount();
+		float resultMoneyIn2 = mockIn2.getAccount().getAccount();
+		assertEquals(expectedMoneyIn1,resultMoneyIn1,0.1);
+		assertEquals(expectedMoneyIn2,resultMoneyIn2,0.1);
+	}
+	
 }
