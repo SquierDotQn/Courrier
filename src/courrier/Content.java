@@ -8,4 +8,6 @@ package courrier;
  */
 public interface Content {
 
+	public String toString();
+
 }
