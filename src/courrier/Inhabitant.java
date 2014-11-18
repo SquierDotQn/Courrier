@@ -27,6 +27,7 @@ public class Inhabitant {
 		this.address = address;
 		this.account = new BankAccount();
 		this.name = name;
+		address.addInhabitant(this);
 	}
 
 	/**
@@ -54,26 +55,6 @@ public class Inhabitant {
 	}
 
 	/**
-	 * Debits the inhabitant's account
-	 * 
-	 * @param amount 
-	 * 			the amount to debit
-	 */
-	public void debit(float amount){
-		this.account.debit(amount);
-	}
-
-	/**
-	 * Credits the inhabitant's account
-	 * 
-	 * @param amount 
-	 * 			the amount to credit
-	 */
-	public void credit(float amount){
-		this.account.credit(amount);
-	}
-
-	/**
 	 * Posts a letter.
 	 * 
 	 * @param letter
@@ -82,8 +63,10 @@ public class Inhabitant {
 	public void postsLetter(Letter<?> letter) {
 		this.account.debit(letter.getCost());
 		this.address.sendLetter(letter);
-		System.out.println(this.name+" mails a "+letter);
-		System.out.println("-"+letter.getCost()+" was debited from "+this.name+"'s account, whose balance is now "+this.account.getAccount()+".");
+		System.out.println(this.name + " mails a " + letter);
+		System.out.println(letter.getCost() + " was debited from "
+				+ this.name + "'s account, whose balance is now "
+				+ this.account.getAccount() + ".");
 	}
 
 	/**
@@ -94,6 +77,10 @@ public class Inhabitant {
 	 */
 	public void receiveLetter(Letter<?> letter) {
 		letter.action();
+	}
+
+	public String toString() {
+		return this.getName();
 	}
 
 }
