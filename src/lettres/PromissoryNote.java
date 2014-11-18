@@ -2,6 +2,8 @@ package lettres;
 
 import courrier.Inhabitant;
 import courrier.Money;
+import exception.NegativeAmountException;
+import exception.NotEnoughMoneyException;
 /**
  * Class for the promissory letter, containing money.
  * 
@@ -43,8 +45,12 @@ public class PromissoryNote extends Letter<Money> {
 	@Override
 	public void action(){
 		super.action();
-		sender.getAccount().debit(content.getValue());
-		reciever.getAccount().credit(content.getValue());
+		try {
+			sender.getAccount().debit(content.getValue());
+			reciever.getAccount().credit(content.getValue());
+		} catch (NegativeAmountException | NotEnoughMoneyException e) {
+			e.printStackTrace();
+		}
 		reciever.postsLetter(new ThanksLetter(this));
 	}
 	

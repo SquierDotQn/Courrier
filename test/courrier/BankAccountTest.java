@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import exception.NegativeAmountException;
+import exception.NotEnoughMoneyException;
+
 public class BankAccountTest {
 
 	BankAccount ba;
@@ -18,14 +21,28 @@ public class BankAccountTest {
 	
 	@Test
 	public void testCredit() {
-		ba.credit(20);
+		try {
+			ba.credit(20);
+		} catch (NegativeAmountException e) {
+			e.printStackTrace();
+			fail("Should never happen");
+		}
 		assertEquals(first_amount+20, ba.getAccount(), 0.0001);
 	}
 	
 	@Test
 	public void testDebit() {
-		ba.debit(50);
+		try {
+			ba.debit(50);
+		} catch (NotEnoughMoneyException | NegativeAmountException e) {
+			fail("Should never happen");
+		}
 		assertEquals(first_amount-50, ba.getAccount(), 0.0001);
+	}
+	
+	@Test(expected=NotEnoughMoneyException.class)
+	public void testDebitTooMuch() throws NegativeAmountException, NotEnoughMoneyException {
+		ba.debit(50000000);
 	}
 
 	

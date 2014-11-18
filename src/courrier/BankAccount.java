@@ -1,6 +1,6 @@
 package courrier;
 
-import exception.NegatifAmountException;
+import exception.NegativeAmountException;
 import exception.NotEnoughMoneyException;
 
 /**
@@ -27,13 +27,13 @@ public class BankAccount {
 	 * 
 	 * @param amount
 	 *            the amount of money to add.
-	 * @throws NegatifAmountException 
+	 * @throws NegativeAmountException 
 	 */
-	public void credit(float amount) throws NegatifAmountException {
+	public void credit(float amount) throws NegativeAmountException {
 		if (amount >= 0)
 			this.account += amount;
 		else
-			throw new NegatifAmountException();
+			throw new NegativeAmountException();
 	}
 
 	/**
@@ -41,10 +41,10 @@ public class BankAccount {
 	 * 
 	 * @param amount
 	 *            the amount of money to substract.
-	 * @throws NegatifAmountException 
+	 * @throws NegativeAmountException 
 	 * @throws NotEnoughMoneyException 
 	 */
-	public void debit(float amount) throws NegatifAmountException, NotEnoughMoneyException {
+	public void debit(float amount) throws NegativeAmountException, NotEnoughMoneyException {
 		if (amount >=0) {
 			if (account - amount >= 0)
 				this.account -= amount;
@@ -52,7 +52,7 @@ public class BankAccount {
 				throw new NotEnoughMoneyException();
 		}
 		else 
-			throw new NegatifAmountException(); 
+			throw new NegativeAmountException(); 
 	}
 
 	/**
