@@ -1,6 +1,5 @@
 package lettres;
 
-import courrier.Inhabitant;
 /**
  * Class for the registered letter, containing another letter.
  * 
@@ -10,15 +9,11 @@ public class RegisteredLetter extends AbstractLetterDecorator<Letter<?>> {
 	/**
 	 * Constructor.
 	 * 
-	 * @param sender
-	 *            the inhabitant sending the letter
-	 * @param reciever
-	 *            the inhabitant receiving the letter
 	 * @param content
 	 *            the content of the letter, which is a letter
 	 */
-	public RegisteredLetter(Inhabitant sender, Inhabitant reciever, Letter<?> content) {
-		super(sender, reciever, content);
+	public RegisteredLetter(Letter<?> content) {
+		super(content);
 	}
 
 	@Override
@@ -31,6 +26,7 @@ public class RegisteredLetter extends AbstractLetterDecorator<Letter<?>> {
 	 */
 	@Override
 	public void action(){
+		content.action();
 		reciever.postsLetter(new ReceiptAcknowledgmentLetter(this));
 	}
 	

@@ -100,6 +100,7 @@ public class Inhabitant {
 	 *            the letter received
 	 */
 	public void receiveLetter(Letter<?> letter) {
+		System.out.println(letter.getReceiver() +" received a "+letter+" from "+ letter.getSender()+" containing "+letter.getContent());
 		letter.action();
 	}
 

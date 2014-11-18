@@ -16,6 +16,8 @@ public class Main {
 		Letter<Money> present = new PromissoryNote(theo, marion, content);
 		theo.postsLetter(present);
 		villeneuve.distributeLetter();
+		// There's a thanks letter in the city's mailbox
+		villeneuve.distributeLetter();
 
 	}
 }

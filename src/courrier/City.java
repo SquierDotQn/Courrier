@@ -70,11 +70,17 @@ public class City {
 	 * Delivers all the letter int the letterBox.
 	 */
 	public void distributeLetter() {
+		System.out.println("-----------------------------------------------------");
 		System.out.println("It's time for mail delivery in " + this);
-		for (Letter<?> l : this.letterBox) {
-			l.getReceiver().receiveLetter(l);
+		System.out.println("-----------------------------------------------------");
+		int nbLetters=0;
+		Letter<?> letterDistributed; // The letter to distribute
+		nbLetters = letterBox.size(); // The number of letters to distribute today
+		for (int i=0; i<nbLetters; i++) {
+			letterDistributed = letterBox.get(0); // Gets the first letter to dispatch
+			letterDistributed.getReceiver().receiveLetter(letterDistributed); // Dispatches it
+			letterBox.remove(0); // As it is dispatched, it isn't in the box anymore, so we remove it
 		}
-		this.letterBox.clear();
 	}
 
 	/**

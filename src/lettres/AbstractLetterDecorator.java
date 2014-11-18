@@ -21,9 +21,8 @@ public abstract class AbstractLetterDecorator<T extends Letter<?>> extends Lette
 	 * @param content
 	 *            the content of the letter
 	 */
-	public AbstractLetterDecorator(Inhabitant sender, Inhabitant reciever,
-			T content) {
-		super(sender, reciever, content);
+	public AbstractLetterDecorator(T content) {
+		super(content.sender, content.reciever, content);
 	}
 	
 	

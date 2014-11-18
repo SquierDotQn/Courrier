@@ -1,6 +1,4 @@
 package lettres;
-
-import courrier.Inhabitant;
 /**
  * Class for the urgent letter, containing another letter.
  * 
@@ -17,8 +15,8 @@ public class UrgentLetter extends AbstractLetterDecorator<Letter<?>> {
 	 * @param content
 	 *            the content of the letter, which is a letter
 	 */
-	public UrgentLetter(Inhabitant sender, Inhabitant reciever, Letter<?> content) {
-		super(sender, reciever, content);
+	public UrgentLetter(Letter<?> content) {
+		super(content);
 	}
 
 	@Override

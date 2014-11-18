@@ -30,6 +30,11 @@ public class BankAccountTest {
 		assertEquals(first_amount+20, ba.getAccount(), 0.0001);
 	}
 	
+	@Test(expected=NegativeAmountException.class)
+	public void testCreditNegative() throws NegativeAmountException, NotEnoughMoneyException {
+		ba.credit(-1);
+	}
+	
 	@Test
 	public void testDebit() {
 		try {
@@ -43,6 +48,11 @@ public class BankAccountTest {
 	@Test(expected=NotEnoughMoneyException.class)
 	public void testDebitTooMuch() throws NegativeAmountException, NotEnoughMoneyException {
 		ba.debit(50000000);
+	}
+	
+	@Test(expected=NegativeAmountException.class)
+	public void testDebitNegative() throws NegativeAmountException, NotEnoughMoneyException {
+		ba.debit(-1);
 	}
 
 	
