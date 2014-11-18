@@ -17,7 +17,15 @@ public class Main {
 		theo.postsLetter(present);
 		villeneuve.distributeLetter();
 		// There's a thanks letter in the city's mailbox
+		Letter<?> urgent = new UrgentLetter(salut);
+		marion.postsLetter(urgent);
 		villeneuve.distributeLetter();
-
+		Letter<?> registered = new RegisteredLetter(present);
+		theo.postsLetter(registered);
+		villeneuve.distributeLetter();
+		// There's a thanks letter and a receipt in the city's mailbox
+		villeneuve.distributeLetter();
+		
+		
 	}
 }
