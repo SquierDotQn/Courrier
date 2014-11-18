@@ -81,12 +81,14 @@ public class Inhabitant {
 	 *            the letter sent
 	 */
 	public void postsLetter(Letter<?> letter) {
-		this.account.debit(letter.getCost());
-		this.address.sendLetter(letter);
-		System.out.println(this.name + " mails a " + letter);
-		System.out.println(letter.getCost() + " was debited from "
-				+ this.name + "'s account, whose balance is now "
-				+ this.account.getAccount() + ".");
+		try {
+			this.debit(letter.getCost());
+			this.address.sendLetter(letter);
+			System.out.println(this.name + " mails a " + letter);
+		} catch (NotEnoughMoneyException e) {
+			System.out.println(this.name + "can't post a " + letter
+					+ ". It's too expensive !");
+		}
 	}
 
 	/**
