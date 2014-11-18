@@ -1,5 +1,8 @@
 package courrier;
 
+import exception.NegatifAmountException;
+import exception.NotEnoughMoneyException;
+
 /**
  * Class for the bank account. A bank account is used to manage the money of the
  * inhabitants of a city who can post letters.
@@ -24,9 +27,13 @@ public class BankAccount {
 	 * 
 	 * @param amount
 	 *            the amount of money to add.
+	 * @throws NegatifAmountException 
 	 */
-	public void credit(float amount) {
-		this.account += amount;
+	public void credit(float amount) throws NegatifAmountException {
+		if (amount >= 0)
+			this.account += amount;
+		else
+			throw new NegatifAmountException();
 	}
 
 	/**
@@ -34,9 +41,18 @@ public class BankAccount {
 	 * 
 	 * @param amount
 	 *            the amount of money to substract.
+	 * @throws NegatifAmountException 
+	 * @throws NotEnoughMoneyException 
 	 */
-	public void debit(float amount) {
-		this.account -= amount;
+	public void debit(float amount) throws NegatifAmountException, NotEnoughMoneyException {
+		if (amount >=0) {
+			if (account - amount >= 0)
+				this.account -= amount;
+			else
+				throw new NotEnoughMoneyException();
+		}
+		else 
+			throw new NegatifAmountException(); 
 	}
 
 	/**
