@@ -54,6 +54,26 @@ public class Inhabitant {
 		return account;
 	}
 
+	private void debit(float amount) throws NotEnoughMoneyException {
+		try {
+			this.account.debit(amount);
+			System.out.println(amount + " was debited from " + this.name
+					+ "'s account, whose balance is now "
+					+ this.account.getAccount() + ".");
+		} catch (NegatifAmountException e) {
+			System.out
+					.println("Don't try to rip off the bank ! You can't debit a negative amount of money.");
+		}
+	}
+
+	public void credit(float amount) throws NegatifAmountException {
+		this.account.credit(amount);
+		System.out.println(amount + " was credited from " + this.name
+				+ "'s account, whose balance is now "
+				+ this.account.getAccount() + ".");
+	}
+
+
 	/**
 	 * Posts a letter.
 	 * 
