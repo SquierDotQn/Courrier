@@ -1,8 +1,10 @@
 package lettres;
 
 import org.junit.Before;
+import org.junit.Test;
 
 import courrier.City;
+import courrier.Content;
 import courrier.Inhabitant;
 
 public abstract class LetterTest {
@@ -19,4 +21,10 @@ public abstract class LetterTest {
 		mockIn2 = new Inhabitant("mockIn2", testCity);
 		l = createLetter();
 	}
+
+	@Test
+	public void testGetContent(){
+		assert((l.getContent() instanceof Content));
+	}
+	
 }

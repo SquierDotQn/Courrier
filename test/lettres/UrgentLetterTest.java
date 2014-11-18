@@ -23,17 +23,5 @@ public class UrgentLetterTest extends AbstractLetterDecoratorTest {
 		return new UrgentLetter(exampleLetter);
 	}
 	
-	@Test
-	public void testAction() {
-		float expectedMoneyIn1 = mockIn1.getAccount().getAccount()-exampleMoney.getValue();
-		float expectedMoneyIn2 = mockIn2.getAccount().getAccount()+exampleMoney.getValue()-SimpleLetter.DEFAULT_COST;
-		
-		l.action();
-		
-		float resultMoneyIn1 = mockIn1.getAccount().getAccount();
-		float resultMoneyIn2 = mockIn2.getAccount().getAccount();
-		assertEquals(expectedMoneyIn1,resultMoneyIn1,0.1);
-		assertEquals(expectedMoneyIn2,resultMoneyIn2,0.1);
-	}
 
 }

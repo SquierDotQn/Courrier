@@ -12,7 +12,7 @@ import exception.NotEnoughMoneyException;
  */
 public class BankAccount {
 
-	public static final float DEFAULT_ACCOUNT = 100;
+	private static final float DEFAULT_ACCOUNT = 100;
 	private float account;
 
 	/**
